@@ -1,6 +1,7 @@
 <?php 
 
 class Productos {
+    public $claveProducto;
     public $nombre;
     public $precio;
     public $cantidad;

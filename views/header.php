@@ -11,7 +11,7 @@
         <ul>
             <li><a href="<?php echo constant('URL'); ?>Main"      >Inicio</a></li>
             <li><a href="<?php echo constant('URL'); ?>Nuevo"     >Producto</a></li>
-            <li><a href="<?php echo constant('URL'); ?>Categorias">Categorias</a></li>
+            <!-- <li><a href="< ?php echo constant('URL'); ?>Categorias">Categorias</a></li> -->
             <li><a href="<?php echo constant('URL'); ?>Inventario" >Inventario</a></li>
         </ul>
     </header>

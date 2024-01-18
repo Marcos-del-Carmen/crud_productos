@@ -26,17 +26,26 @@ class App {
         # Validamos que el archivo del controlador exista 
         if(file_exists($archivoController)){
             require_once $archivoController;
+
             # inicializa el controlador y modelo
             $controller = new $url[0];
             $controller->loadModel($url[0]);
 
-            # Validamos que el metodo del controlador exista
-            if(isset($url[1])) {
-                $controller->{$url[1]}();
+            $nparam = sizeof($url);
+            if($nparam > 1) {
+                if($nparam){
+                    $param = [];
+                    for($i = 2; $i<$nparam; $i++) {
+                        array_push($param, $url[$i]);
+                        $controller->{$url[1]}($param);
+                    }
+                } else {
+                    $controller->{$url[1]}();
+                }
             } else {
                 $controller->render();
             }
-
+            # Validamos que el metodo del controlador exista
         } else {
             $controller = new ErrorController();
         }
