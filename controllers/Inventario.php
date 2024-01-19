@@ -5,6 +5,7 @@ class Inventario extends Controller {
         $this->view->mensaje="Inventario de nuestros productos";
         $this->view->productos = [];
     }
+    
     function render(){
         $productos = $this->model->mostrar();
         // var_dump($productos);
@@ -15,58 +16,64 @@ class Inventario extends Controller {
     function verProducto($param = null){
         $idProducto = $param[0];
         $producto = $this->model->getById($idProducto);
-
+        session_start();
+        $_SESSION['idProducto'] = $producto->claveProducto;
         $this->view->producto = $producto;
         $this->view->render('Inventario/detalle');
     }
 
-    function actualizarProducto(){
-        // $nombre =       $_POST['nombre'];
-        // $precio =       $_POST['precio'];
-        // $cantidad =     $_POST['cantidad'];
-        // $categoria =    $_POST['categoria'];
-        // $descripcion =  $_POST['descripcion'];
+    function actualizarProducto() {
+        session_start();
+        // $claveProducto = $_SESSION['idProducto']; # obtener el valor del id apartir de una seccion para que no pueda ser modificada 
+        $claveProducto = $_POST['claveProducto'];
+        $nombre =       $_POST['nombre'];
+        $precio =       $_POST['precio'];
+        $cantidad =     $_POST['cantidad'];
+        $categoria =    $_POST['categoria'];
+        $descripcion =  $_POST['descripcion'];
 
-        // $mensaje = "";
-        // if($this->model->update(
-        //     [
-        //     'nombre'=>$nombre, 
-        //     'precio'=>$precio, 
-        //     'cantidad'=>$cantidad, 
-        //     'categoria'=>$categoria, 
-        //     'descripcion'=>$descripcion
-        //     ]
-        // )){
-        //     $producto = new Productos();
-        //     $producto->nombre       =$nombre;
-        //     $producto->precio       =$precio;
-        //     $producto->cantidad     =$cantidad;
-        //     $producto->categoria    =$categoria;
-        //     $producto->descripcion  =$descripcion;
+        // unset($_SESSION['idProducto']); # destruimos la seccion 
 
-        //     $this->view->producto = $producto;
-        //     $this->view->mensaje = "Se actualizo de manera correcta";
-        // } else {
-        //     $this->view->mensaje = "No se actualizo el producto";
-        // } 
-        // $this->view->render('Inventario/detalle');
+        $mensaje = "";
+
+        if($this->model->update(
+            [
+            'claveProducto' =>$claveProducto,
+            'nombre'        =>$nombre, 
+            'precio'        =>$precio, 
+            'cantidad'      =>$cantidad, 
+            'categoria'     =>$categoria, 
+            'descripcion'   =>$descripcion
+            ]
+        )){
+            $producto = new Productos();
+            $producto->claveProducto=$claveProducto; 
+            $producto->nombre       =$nombre;
+            $producto->precio       =$precio;
+            $producto->cantidad     =$cantidad;
+            $producto->categoria    =$categoria;
+            $producto->descripcion  =$descripcion;
+
+            $this->view->producto = $producto;
+            $this->view->mensaje = "Se actualizo de manera correcta";
+        } else {
+            $this->view->mensaje = "No se actualizo el producto";
+        } 
+        $this->view->render('Inventario/detalle');
     }
 
     function eliminarProducto($param = null){
-        // $claveProducto = $param[0];
+        $claveProducto = $param[0];
 
-        // if($this->model->delete($claveProducto)){
-        //     //$this->view->mensaje = "Alumno eliminado correctamente";
-        //     $mensaje = "Producto eliminado correctamente";
-        // }else{
-        //     // mensaje de error
-        //     //$this->view->mensaje = "No se pudo eliminar el alumno";
-        //     $mensaje = "No se pudo eliminar el producto";
-        // }
-        // //$this->render();
+        if($this->model->delete($claveProducto)){
+            //$this->view->mensaje = "Alumno eliminado correctamente";
+            // $mensaje = "Producto eliminado correctamente";
+        }else{
+            // mensaje de error
+            //$this->view->mensaje = "No se pudo eliminar el alumno";
+            $mensaje = "No se pudo eliminar el producto";
+        }
+        $this->render();
         
-        // echo $mensaje;
     }
-
-    
 }

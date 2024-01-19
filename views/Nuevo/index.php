@@ -27,21 +27,23 @@
                     <input type="number"    name="cantidad">
                 </div>
                 <div class="cont-input">
-                    <select name="categoria">
+                    <label>Categoría</label> <br>
+                    <select name="categoria"> 
                         <option value="" selected>-Selecciona una opción-</option>
                         <option value="1">Cereales</option>
                         <option value="2">Lácteos</option>
                         <option value="3">Snacks</option>
-                        <option value="4">Cuidado Personal</option>
+                        <option value="4">Bebidas</option>
+                        <option value="5">Cuidado Personal</option>
                     </select>
                 </div>
                 <div class="cont-input">
                     <label>Descripcion</label> <br>
-                    <textarea name="descripcion" id="" cols="30" rows="10"></textarea>
+                    <textarea name="descripcion" id=""></textarea>
                 </div>
                 
                 
-                <button type="submit">Agregar</button>
+                <button type="submit" class="btn btn-guardar">Agregar</button>
             </form>
         </div>
     </main>

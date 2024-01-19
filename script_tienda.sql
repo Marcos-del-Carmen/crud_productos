@@ -1,12 +1,12 @@
 CREATE DATABASE db_tienda;
 
-CREATE TABLE db_tienda.categorias(
+CREATE TABLE categorias(
 	ClaveCategoria	 	INT 		NOT NULL AUTO_INCREMENT, 
 	Nombre	 			VARCHAR(50) NOT NULL,
     PRIMARY KEY(ClaveCategoria)
 )ENGINE=InnoDB;
 
-CREATE TABLE db_tienda.productos(
+CREATE TABLE productos(
 	ClaveProducto 		INT 			NOT NULL AUTO_INCREMENT,
 	Nombre 				VARCHAR(255) 	NOT NULL,
     Cantidad 			INT(5) 			NOT NULL, 
@@ -14,10 +14,10 @@ CREATE TABLE db_tienda.productos(
     Descripcion 		VARCHAR(255) 	NOT NULL,
     ClaveCategoria	 	INT				NOT NULL,
     PRIMARY KEY(ClaveProducto),
-    FOREIGN KEY(ClaveCategoria) REFERENCES db_tienda.categorias(ClaveCategoria)
+    FOREIGN KEY(ClaveCategoria) REFERENCES categorias(ClaveCategoria)
 )ENGINE=InnoDB;
 
-INSERT INTO db_tienda.categorias
+INSERT INTO categorias
 (Nombre) 
 VALUES 
 ('Cereales'),
@@ -26,7 +26,7 @@ VALUES
 ('Bebidas'),
 ('Cuidado Personal');
 
-INSERT INTO db_tienda.productos 
+INSERT INTO productos 
 (Nombre, 			Cantidad, 	Precio, Descripcion, 						ClaveCategoria) 
 VALUES 
 ('Avena', 			50, 		20, 	'Caja de avena instantánea', 		1),
@@ -45,6 +45,6 @@ VALUES
 ('Té', 				90, 		105, 	'Caja de bolsitas de té verde', 	4),
 ('Shampoo', 		60, 		65, 	'Botella de shampoo nutritivo', 	5);
 
-DROP TABLE db_tienda.productos;
-DROP TABLE db_tienda.categoria;
+DROP TABLE productos;
+DROP TABLE categoria;
 

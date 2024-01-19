@@ -14,10 +14,11 @@
             // var_dump($this->productos); 
             // echo '</pre>';
         ?>
-    
-        <table>
-            <thead>
-                <tr>
+        <div class="tabla">
+
+            <table>
+                <thead>
+                    <tr>
                     <th>Nombre</th>
                     <th>Precio</th>
                     <th>Cantidad</th>
@@ -34,13 +35,13 @@
                         <td><?php echo $producto->cantidad; ?></td>
                         <td><?php echo $producto->claveCategoria; ?></td>
                         <td><?php echo $producto->descripcion; ?></td>
-                        <td><a href="<?php echo constant('URL').'Inventario/verProducto/'.$producto->claveProducto ?>">Editar</a></td>
-                        <td><a href="<?php echo constant('URL').'Inventario/eliminarProducto/'.$producto->claveProducto ?>">Eliminar</a></td>
+                        <td><a class="btn btn-editar" href="<?php echo constant('URL').'Inventario/verProducto/'.$producto->claveProducto; ?>">Editar</a></td>
+                        <td><a class="btn btn-eliminar" href="<?php echo constant('URL').'Inventario/eliminarProducto/'.$producto->claveProducto; ?>">Eliminar</a></td>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </main>
     
 </body>

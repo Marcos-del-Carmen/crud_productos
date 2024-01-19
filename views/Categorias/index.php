@@ -17,7 +17,7 @@
                     <input type="text"      name="nombre">
                 </div>               
                 
-                <button type="submit">Agregar</button>
+                <button type="submit" class="btn btn-guardar">Agregar</button>
             </form>
         </div>
     </main>

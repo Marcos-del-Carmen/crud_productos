@@ -1,18 +1,18 @@
 <?php 
 include_once 'models/Productos.php';
 class InventarioModel extends Model {
-    public function __construct(){
+    function __construct(){
         parent::__construct();
     }
 
-    public function mostrar() {
+    function mostrar() {
         $items = [];
         try {
-            $query = $this->db->connect()->query("SELECT*FROM productos");
+            $query = $this->db->connect()->query("SELECT * FROM productos");
 
             while($row = $query->fetch()) {
                 $item = new Productos();
-                $item->claveProducto    = $row['ClaveProducto']; 
+                $item->claveProducto    = $row['ClaveProducto'];
                 $item->nombre           = $row['Nombre'];
                 $item->precio           = $row['Precio'];
                 $item->cantidad         = $row['Cantidad'];
@@ -27,12 +27,12 @@ class InventarioModel extends Model {
         } catch(PDOExeption $e) {
             return [];
         }
-    }
+    } # funcionado 
 
-    public function getById($id) {
+    function getById($id) {
         $item = new Productos();
 
-        $query = $this->db->connect()->prepare("UPDATE productos SET ClaveProducto = :ClaveProducto");
+        $query = $this->db->connect()->prepare("SELECT * FROM productos WHERE ClaveProducto = :ClaveProducto");
         try {
             $query->execute(['ClaveProducto' => $id]);
 
@@ -50,32 +50,33 @@ class InventarioModel extends Model {
             return null;
         }
 
-    }
+    } # obtenemos la informacion de la llave primaria de la tabla 
 
-    public function update($item){
+    public function update($item) { 
         $query = $this->db->connect()->prepare("UPDATE productos SET Nombre = :Nombre, Cantidad = :Cantidad, Precio = :Precio, Descripcion = :Descripcion, ClaveCategoria = :ClaveCategoria WHERE ClaveProducto = :ClaveProducto");
-        try {   
+        try {
             $query->execute([
-                'Nombre'        => $item['Nombre'],
-                'Precio'        => $item['Precio'],
-                'Cantidad'      => $item['Cantidad'],
-                'ClaveCategoria'=> $item['ClaveCategoria'],
-                'Descripcion'   => $item['Descripcion']
+                'ClaveProducto'     =>$item['claveProducto'],
+                'Nombre'            =>$item['nombre'],
+                'Cantidad'          =>$item['cantidad'],
+                'Precio'            =>$item['precio'],
+                'Descripcion'       =>$item['descripcion'],
+                'ClaveCategoria'    =>$item['categoria'],
             ]);
             return true;
-        } catch(PDOExecption $e){
+        } catch(PDOExeption $e){
             return false;
         }
     }
-
+    
     public function delete($id){
-        $query = $this->db->connect()->prepare("DELETE FROM productos WHERE ClaveProdcuto = :ClaveProducto");
-        try{
+        $query = $this->db->connect()->prepare("DELETE FROM productos WHERE ClaveProducto = :id");
+        try {
             $query->execute([
-                'ClaveProducto'=> $id,
+                'id'     => $id
             ]);
             return true;
-        }catch(PDOException $e){
+        } catch(PDOExeption $e){
             return false;
         }
     }

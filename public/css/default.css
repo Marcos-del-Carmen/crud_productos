@@ -13,6 +13,7 @@ ul, ol {
 }
 
 h1,h2,h3 {
+    margin: 20px 0px;
     text-align: center;
 }
 table {
@@ -21,8 +22,20 @@ table {
 
 th, td {
     border: 1px solid black;
-    padding: 8px;
+    padding: 10px;
     text-align: left;
+}
+
+th {
+    background-color: rgb(0, 0, 169);
+    color: #fff;
+}
+tbody tr:nth-child(even) {
+    background-color: #cdcdcd; /* Gris oscuro para filas pares */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fff; /* Blanco para filas impares */
 }
 
 header {
@@ -58,7 +71,100 @@ header ul li {
 header ul li a {
     color: #fff;
 }
+
+form {
+    width: 30%;
+    margin: 0px auto;
+    border:1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+form select,
+form input {
+    width: 350px;
+    height: 25px;
+    
+}
+
+form textarea {
+    width: 350px;
+    height: 200px;
+}
+
+form select {    
+    font-size: 1em;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+form input {
+    font-size: 1em;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+form textarea {
+    font-size: 1em;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 5px;    
+}
+
 /********************************************************* ALERTAS *********************************************************/
 .error {
     color:#ec2929; 
+}
+
+.btn {
+    padding: 8px;
+    border-radius: 5px;
+    transition: all 0.8s;
+    border: none;
+}
+
+.tabla {
+    width: 70%;
+    margin: 0px auto;
+}
+
+.tabla table {
+    width: 100%;
+}
+
+.tabla table .btn-eliminar {
+    background-color: #ec2929;
+    color: #fff;
+}
+
+.btn-guardar {
+    background-color: #027800;
+    border:1px solid #fff; 
+    color: #fff;
+}
+.btn-guardar:hover {
+    background-color: #fff;
+    border: 1px solid #027800;
+    color: #027800;
+}
+.tabla table .btn-eliminar:hover {
+    background-color: #fff;
+    color: #ec2929;
+}
+
+.tabla table .btn-editar {
+    background-color: #ece529;
+    color: #1b1b1b;
+}
+
+.tabla table .btn-editar:hover {
+    color: #ece529;
+    background-color: #1b1b1b;
 }

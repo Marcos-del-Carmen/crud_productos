@@ -8,12 +8,15 @@
 <body>
     <?php include_once 'views/header.php';?>
     <main>    
-        <h1>Detalle de </h1>
+        <h1>Detalle del producto (<?php echo $this->producto->nombre; ?>)</h1>
         <div class="cont-alert">
-            <?php echo $this->mensaje;?>
+            <?php // echo $this->mensaje;?> 
         </div>
         <div class="form-pro-new">
-            <form action="<?php echo constant('URL');?>Consulta/actualizarProducto" method="POST">
+            <form action="<?php echo constant('URL');?>Inventario/actualizarProducto" method="POST">
+                <div class="cont-inputt">
+                    <input type="hidden" name="claveProducto" value="<?php echo $this->producto->claveProducto; ?>">
+                </div>
                 <div class="cont-input">
                     <label>Nombre</label> <br>
                     <input type="text"      name="nombre" value="<?php echo $this->producto->nombre; ?>">
@@ -27,19 +30,21 @@
                     <input type="number"    name="cantidad" value="<?php echo $this->producto->cantidad; ?>">
                 </div>
                 <div class="cont-input">
+                    <label>Categoría</label> <br>
                     <select name="categoria">
                         <option value="<?php echo $this->producto->claveCategoria; ?>" selected><?php echo $this->producto->claveCategoria; ?></option>
                         <option value="1">Cereales</option>
                         <option value="2">Lácteos</option>
                         <option value="3">Snacks</option>
-                        <option value="4">Cuidado Personal</option>
+                        <option value="4">Bebidas</option>
+                        <option value="5">Cuidado Personal</option>
                     </select>
                 </div>
                 <div class="cont-input">
                     <label>Descripcion</label> <br>
-                    <textarea name="descripcion" id="" cols="30" rows="10" ><?php echo $this->producto->descripcion; ?></textarea>
+                    <textarea name="descripcion" id=""><?php echo $this->producto->descripcion; ?></textarea>
                 </div>
-                <button type="submit">Actulizar</button>
+                <button type="submit" class="btn btn-guardar">Actualizar</button>
             </form>
         </div>
     </main>

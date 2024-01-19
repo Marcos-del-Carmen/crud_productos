@@ -31,9 +31,9 @@ class App {
             $controller = new $url[0];
             $controller->loadModel($url[0]);
 
-            $nparam = sizeof($url);
+            $nparam = sizeof($url); # numero de elementos del arreglo
             if($nparam > 1) {
-                if($nparam){
+                if($nparam > 2){
                     $param = [];
                     for($i = 2; $i<$nparam; $i++) {
                         array_push($param, $url[$i]);
@@ -49,7 +49,5 @@ class App {
         } else {
             $controller = new ErrorController();
         }
-
-
     }
 }

@@ -20,11 +20,11 @@ class Nuevo extends Controller {
         $mensaje = "";
         if($this->model->insertar(
             [
-            'nombre'=>$nombre, 
-            'precio'=>$precio, 
-            'cantidad'=>$cantidad, 
-            'categoria'=>$categoria, 
-            'descripcion'=>$descripcion
+            'nombre'        => $nombre, 
+            'precio'        => $precio, 
+            'cantidad'      => $cantidad, 
+            'categoria'     => $categoria, 
+            'descripcion'   => $descripcion
             ]
         )){
             $mensaje = "El producto repite el numero de serie";
@@ -33,7 +33,7 @@ class Nuevo extends Controller {
         } 
 
         $this->view->mensaje = $mensaje;
-        $this->render();
+        $this->view->render('Nuevo/index');
     }
 
 }
