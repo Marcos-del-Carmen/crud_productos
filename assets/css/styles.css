@@ -1,0 +1,405 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem; /* Tamaño grande de fuente */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    margin-bottom: 1rem; /* Espaciado inferior */
+    text-align: left; /* Alineación al centro */
+}
+
+/* Estilo para el texto seleccionado */
+::selection {
+    background-color: #fe842e; /* Color de fondo del texto seleccionado */
+    color: #fff; /* Color del texto seleccionado */
+}
+
+/* Para navegadores Webkit (Chrome, Safari) */
+::-webkit-selection {
+    background-color: #fe842e; /* Color de fondo del texto seleccionado */
+    color: #fff; /* Color del texto seleccionado */
+}
+
+.navbar {
+    background-color: #000; /* Fondo completamente negro */
+}
+
+.navbar-brand {
+    margin-left: 20px; /* Mueve el logo a la derecha */
+}
+
+.navbar, .navbar-nav .nav-link, .navbar-brand {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem; /* Ajusta el tamaño de la fuente */
+    text-transform: uppercase;
+    color: #fff; /* Letras blancas */
+}
+
+.navbar-nav .nav-link {
+    margin-right: 50px; /* Mayor separación entre elementos */
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: #fe842e; /* Cambia a rojo cuando pasen el cursor */
+}
+
+.navbar-nav .nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* Estilo para el botón Carrito en el header */
+.navbar .btn-danger {
+    background-color: #fe842e; /* Cambia el color de fondo del botón */
+    border-color: #fe842e; /* Cambia el color del borde del botón si es necesario */
+    color: #fff; /* Color del texto del botón */
+}
+
+.navbar .btn-danger:hover {
+    background-color: #e57343; /* Cambia el color de fondo en el hover */
+    border-color: #e57343; /* Cambia el color del borde en el hover si es necesario */
+}
+
+.dropdown-menu .dropdown-item {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem; /* Ajusta el tamaño de la fuente */
+    text-transform: uppercase;
+    color: #000; /* Color negro para items del dropdown */
+}
+
+.btn {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+}
+
+.navbar-toggler {
+    border-color: #fff; /* Borde blanco para el botón */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler:hover .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav-item .btn {
+    border-radius: 25px; /* Ajusta el valor según el grado de redondez deseado */
+}
+
+/* CSS para vista móvil */
+@media (max-width: 767.98px) {
+    .navbar-brand {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-left: 0; /* Elimina el margen izquierdo en vista móvil */
+        margin-bottom: 10px; /* Opcional: agrega un margen inferior para separar el logo de los enlaces */
+    }
+
+    .navbar-nav {
+        text-align: center; /* Centra el contenido de los elementos de navegación */
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%; /* Asegura que cada elemento de la barra de navegación ocupe el ancho completo */
+    }
+
+    .navbar-nav .nav-link {
+        display: block;
+        width: 100%; /* Hace que los enlaces ocupen el 100% del ancho */
+        margin: 0; /* Elimina el margen derecho en vista móvil */
+        padding: 10px 0; /* Ajusta el padding para que haya espacio alrededor del enlace */
+    }
+
+    .btn {
+        width: 100%; /* Asegura que los botones también ocupen el ancho completo */
+        margin: 10px 0; /* Agrega márgenes verticales para separación */
+    }
+}
+
+/* Estilo para el logo del footer */
+.footer-logo {
+    height: 90px;
+}
+
+/* Estilo para los encabezados del footer */
+.footer-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem; /* Añadido para mejorar el espaciado */
+}
+
+/* Estilo para los textos del footer */
+.footer-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem; /* Ajusta el tamaño de la fuente según sea necesario */
+}
+
+/* Estilo para los enlaces del footer */
+.footer-link {
+    color: white;
+    text-decoration: none; /* Elimina el subrayado en los enlaces */
+}
+
+.footer-link:hover {
+    color: #fe842e; /* Cambia el color a rojo en el hover */
+}
+
+/* Estilos para la sección Hero */
+#hero {
+    height: 100vh;
+    overflow: hidden;
+    /* Elimina la imagen de fondo */
+    background-image: none; /* Asegúrate de eliminar la imagen de fondo */
+}
+
+#heroCarousel {
+    height: 100vh;
+    width: 100%;
+}
+
+#heroCarousel .carousel-item img {
+    height: 100vh;
+    object-fit: cover;
+}
+
+.btn-custom {
+    background-color: #d94907; /* Cambia esto según tus necesidades */
+    color: #fff;
+}
+
+.btn-custom:hover {
+    background-color: #b43c05; /* Cambia esto según tus necesidades */
+    color: #fff;
+}
+
+/* Asegúrate de que el contenido dentro de #hero esté centrado */
+#hero .container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+
+/* Estilo del h1 en la sección Hero */
+#hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 5rem; /* Tamaño mayor de fuente */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+}
+
+/* Estilo del botón en la sección Hero */
+#hero .btn {
+    font-size: 1.25rem; /* Tamaño del texto en el botón */
+}
+
+/* Estilo del icono dentro del botón */
+#hero .btn i {
+    margin-right: 8px; /* Espacio entre el icono y el texto del botón */
+}
+
+/* Estilo para todos los botones en la página */
+.btn-custom {
+    background-color: #fe842e; /* Color de fondo del botón */
+    border-color: #fe842e; /* Color del borde del botón */
+    color: #fff; /* Color del texto del botón */
+    font-family: 'Oswald', sans-serif; /* Fuente del texto del botón */
+    font-size: 1.2rem; /* Tamaño del texto del botón */
+    border-radius: 25px; /* Redondeo de bordes del botón */
+    text-transform: uppercase;
+}
+
+.btn-custom:hover {
+    background-color: #e57343; /* Color de fondo al pasar el cursor */
+    border-color: #e57343; /* Color del borde al pasar el cursor */
+    color: #fff; /* Asegura que el texto siga siendo blanco en el hover */
+}
+
+/* Estilo para la sección Nosotros */
+#nosotros {
+    background-image: url('../images/big-sandwich-hamburger-min.jpg'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Altura de la pantalla completa */
+    color: #000; /* Color del texto negro */
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 0; /* Elimina el padding predeterminado */
+    position: relative; /* Para posicionar el filtro correctamente */
+}
+
+/* Filtro blanco con 65% de transparencia sobre la imagen */
+#nosotros::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.30); /* Filtro blanco con 65% de transparencia */
+    z-index: 1;
+}
+
+#nosotros .container {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido esté por encima del fondo y filtro */
+}
+
+#nosotros .row {
+    height: 100%; /* Asegura que la fila ocupe toda la altura de la sección */
+}
+
+#nosotros h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem; /* Tamaño grande de fuente */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    margin-bottom: 1rem; /* Espaciado inferior */
+    text-align: left; /* Alineación a la izquierda */
+}
+
+#nosotros p {
+    text-align: left; /* Alineación a la izquierda */
+}
+
+#nosotros .btn-custom {
+    background-color: #fe842e; /* Color de fondo personalizado */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Elimina el borde del botón */
+    max-width: 250px; /* Ajusta el ancho máximo del botón */
+}
+
+#nosotros .btn-custom:hover {
+    background-color: #e5722c; /* Color de fondo del botón en hover */
+}
+
+/* Columna izquierda oculta en dispositivos móviles */
+@media (max-width: 767.98px) {
+    #nosotros .d-none.d-md-block {
+        display: none;
+    }
+}
+
+#productos h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem; /* Tamaño grande de fuente */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    margin-bottom: 1rem; /* Espaciado inferior */
+    text-align: center; /* Alineación al centro */
+}
+
+#productos h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem; /* Tamaño grande de fuente */
+    text-transform: none; /* Convertir texto a mayúsculas */
+    margin-bottom: 1rem; /* Espaciado inferior */
+    text-align: left; /* Alineación al centro */
+}
+
+/* Estilo para el contenedor de las tarjetas */
+#productos .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+    margin-bottom: 5px; /* Espacio en la parte inferior de las tarjetas */
+}
+
+/* Estilo para las imágenes de los productos */
+#productos .card-img-top {
+    width: 242px;
+    height: 242px;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    margin-bottom: 15px; /* Espacio inferior en la imagen */
+}
+
+/* Estilo para el título de los productos */
+#productos .card-title {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.25rem; /* Ajusta el tamaño según sea necesario */
+}
+
+/* Estilo para el precio de los productos */
+#productos .card-price {
+    font-family: 'Oswald', sans-serif;
+    color: #e5722c; /* Color del precio */
+    font-size: 1.25rem; /* Ajusta el tamaño del precio según sea necesario */
+    margin-top: 10px; /* Espacio arriba del precio */
+    font-weight: bold; /* Texto en negritas */
+}
+
+/* Estilo para la tarjeta de inicio de sesión */
+.login-card {
+    border-radius: 10px; /* Esquinas ligeramente redondeadas */
+    max-width: 400px; /* Ancho máximo para la tarjeta */
+    width: 100%; /* Asegura que la tarjeta sea responsive */
+}
+
+/* Estilo para el título de la tarjeta */
+.login-card .card-title {
+    font-family: 'Oswald', sans-serif; /* Fuente Oswald */
+    text-transform: uppercase; /* Mayúsculas */
+    font-size: 2rem; /* Tamaño del título */
+    margin-bottom: 1rem; /* Espacio debajo del título */
+}
+
+/* Estilo para el mensaje de error */
+.alert {
+    margin-top: 1rem; /* Espacio arriba del mensaje de error */
+}
+
+/* Estilo base para el campo de búsqueda */
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #e5722c;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Estilo cuando el campo de búsqueda está en foco */
+.dataTables_wrapper .dataTables_filter input:focus {
+    border-color: #e5722c;
+    box-shadow: 0 0 8px rgba(229, 114, 44, 0.5); /* Ajusta el color y la opacidad aquí */
+    outline: none; /* Elimina el borde azul predeterminado del navegador */
+}
+
+.thumbnail-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 50px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-controls .btn {
+    width: 26px; /* Tamaño de los botones */
+    height: 26px; /* Tamaño de los botones */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Sin relleno para mantener el tamaño */
+    font-size: 14px; /* Tamaño del ícono */
+}
+
+.quantity-controls .form-control.quantity {
+    width: 60px; /* Ajusta el ancho del campo de cantidad según lo necesites */
+    margin: 0 10px; /* Espacio entre los botones y el campo de cantidad */
+    text-align: center; /* Centra el texto dentro del campo de cantidad */
+    border-radius: 4px; /* Bordes redondeados del campo de cantidad */
+}

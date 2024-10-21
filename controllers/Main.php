@@ -5,9 +5,12 @@ class Main extends Controller {
     function __construct(){
         parent::__construct();
         $this->view->mensaje="Bienvenido";
+        $this->view->productos = [];
     }
-    function render(){
-        
+
+    function render(){  
+        $productos = $this->view->datos = $this->model->mostrar();
+        $this->view->productos = $productos;
         $this->view->render('Main/index');
     }
 

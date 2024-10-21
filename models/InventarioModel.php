@@ -24,7 +24,7 @@ class InventarioModel extends Model {
                 array_push($items, $item);
             }
             return $items;
-        } catch(PDOExeption $e) {
+        } catch(PDOException $e) {
             return [];
         }
     } # funcionado 
@@ -46,11 +46,11 @@ class InventarioModel extends Model {
 
             }
             return $item;
-        } catch(PDOException){
+        } catch(PDOException $e){
             return null;
         }
 
-    } # obtenemos la informacion de la llave primaria de la tabla 
+    } # obtenemos la informacion de la llave primaria del producto
 
     public function update($item) { 
         $query = $this->db->connect()->prepare("UPDATE productos SET Nombre = :Nombre, Cantidad = :Cantidad, Precio = :Precio, Descripcion = :Descripcion, ClaveCategoria = :ClaveCategoria WHERE ClaveProducto = :ClaveProducto");
@@ -64,7 +64,7 @@ class InventarioModel extends Model {
                 'ClaveCategoria'    =>$item['categoria'],
             ]);
             return true;
-        } catch(PDOExeption $e){
+        } catch(PDOException $e){
             return false;
         }
     }
@@ -76,7 +76,7 @@ class InventarioModel extends Model {
                 'id'     => $id
             ]);
             return true;
-        } catch(PDOExeption $e){
+        } catch(PDOException $e){
             return false;
         }
     }

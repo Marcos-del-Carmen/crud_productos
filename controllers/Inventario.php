@@ -23,7 +23,7 @@ class Inventario extends Controller {
     }
 
     function actualizarProducto() {
-        session_start();
+        // session_start();
         // $claveProducto = $_SESSION['idProducto']; # obtener el valor del id apartir de una seccion para que no pueda ser modificada 
         $claveProducto = $_POST['claveProducto'];
         $nombre =       $_POST['nombre'];
@@ -32,7 +32,7 @@ class Inventario extends Controller {
         $categoria =    $_POST['categoria'];
         $descripcion =  $_POST['descripcion'];
 
-        // unset($_SESSION['idProducto']); # destruimos la seccion 
+        unset($_SESSION['idProducto']); # destruimos la seccion 
 
         $mensaje = "";
 
@@ -67,12 +67,13 @@ class Inventario extends Controller {
 
         if($this->model->delete($claveProducto)){
             //$this->view->mensaje = "Alumno eliminado correctamente";
-            // $mensaje = "Producto eliminado correctamente";
+            $mensaje = "Producto eliminado correctamente";
         }else{
             // mensaje de error
             //$this->view->mensaje = "No se pudo eliminar el alumno";
             $mensaje = "No se pudo eliminar el producto";
         }
+        $this->view->mensaje = $mensaje;
         $this->render();
         
     }

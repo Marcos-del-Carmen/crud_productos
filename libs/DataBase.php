@@ -22,7 +22,7 @@ class DataBase {
                         PDO::ATTR_EMULATE_PREPARES => false];
             $pdo = new PDO($connection, $this->user, $this->pass, $options);
             return $pdo;
-        } catch(PDOExeption $e) {
+        } catch(PDOException $e) {
             print_r("Error connection: {$e->getMessage()}");
         }
     }
